@@ -28,3 +28,29 @@ body {
   margin: 0;
 }
 /* add font style */
+
+h3 {
+  color: #bf4f74;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.level-selector {
+  background-color: #a2d8d8;
+  border: 5px solid #a2d8d8;
+  border-radius: 5px;
+  width: 90px;
+  height: 45px;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  margin: 10px;
+  margin-left: 0px;
+}
+
+.level-selectors-container {
+  display: flex;
+  gap: 20px; /* Adds space between the LevelSelectors */
+  justify-content: center; /* Centers them horizontally */
+}

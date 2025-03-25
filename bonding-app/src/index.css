@@ -1,0 +1,30 @@
+.card {
+  background-color: #bf4f74;
+  border-radius: 10px;
+  border: 10px solid #bf4f74;
+  cursor: pointer;
+  width: 400px;
+  height: 250px;
+  padding: 10px;
+  word-wrap: break-word; /* Allows text to break onto new lines */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: papayawhip;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+/* add font style */

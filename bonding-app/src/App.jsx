@@ -6,13 +6,21 @@ import { getRandomPrompt } from "./data/prompts.js";
 
 const App = () => {
   const [selectedLevel, setSelectedLevel] = useState("Perception");
+  const [touchCard, setTouchCard] = useState(false);
   const handleLevelSelect = (level) => {
     setSelectedLevel(level);
+    setTouchCard(false);
   };
+
   return (
     <>
       <div className="card-container">
-        <Card level={selectedLevel} prompt={getRandomPrompt(selectedLevel)} />
+        <Card
+          level={selectedLevel}
+          prompt={getRandomPrompt(selectedLevel)}
+          touchCard={touchCard}
+          setTouchCard={setTouchCard}
+        />
       </div>
       <div className="level-selectors-container">
         <LevelSelector level="Perception" onSelect={handleLevelSelect} />

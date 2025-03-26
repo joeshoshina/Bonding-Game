@@ -1,56 +1,80 @@
-.card {
-  background-color: #bf4f74;
-  border-radius: 10px;
-  border: 10px solid #bf4f74;
-  cursor: pointer;
-  width: 400px;
-  height: 250px;
-  padding: 10px;
-  word-wrap: break-word; /* Allows text to break onto new lines */
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-h2 {
-  font-size: 1.5em;
-  color: papayawhip;
-  text-align: center;
-}
-
+/* Global styles */
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   margin: 0;
+  background: linear-gradient(
+    to bottom,
+    #4a4a4a,
+    #2c2c2c
+  ); /* Gradient background */
+  font-family: "Poppins", sans-serif; /* Modern font */
 }
-/* add font style */
 
-h3 {
-  color: #bf4f74;
+/* Card Component */
+.card {
+  background-color: #bf4f74;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  width: 400px;
+  height: 250px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05) rotate(1deg); /* Slight tilt effect */
+}
+
+/* Card Text */
+h2 {
+  font-size: 1.5em;
+  color: papayawhip;
   text-align: center;
-  font-size: 1.2em;
-  margin: 0;
 }
 
+/* Level Selector Buttons */
 .level-selector {
   background-color: #a2d8d8;
-  border: 5px solid #a2d8d8;
-  border-radius: 5px;
-  width: 90px;
-  height: 45px;
+  border: 3px solid black;
+  border-radius: 8px;
+  width: 100px;
+  height: 50px;
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
+  justify-content: center;
+  align-items: center;
   margin: 10px;
-  margin-left: 0px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
+.level-selector:hover {
+  background-color: #6eb6b6;
+  transform: scale(1.1);
+}
+
+.level-selector:active {
+  background-color: #4a8a8a;
+  transform: scale(0.95);
+}
+
+/* Level Selector Container */
 .level-selectors-container {
+  margin-top: 30px;
   display: flex;
-  gap: 20px; /* Adds space between the LevelSelectors */
-  justify-content: center; /* Centers them horizontally */
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1); /* Transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }

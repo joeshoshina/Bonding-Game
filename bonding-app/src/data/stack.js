@@ -15,13 +15,12 @@ class Stack {
   }
 
   pop() {
-    this.items.pop();
+    if (this.isEmpty()) return null;
+    return this.items.pop();
   }
 
   top() {
-    if (this.isEmpty()) {
-      return console.log("Error: This stack is empty.");
-    }
+    if (this.isEmpty()) return null;
     return this.items[this.items.length - 1];
   }
 }
@@ -51,4 +50,12 @@ export const populateWithRandomPrompts = (level) => {
     stack.push(shuffledPrompts[i]);
   }
   return stack;
+};
+
+// for getting prompts from stack
+export const getPrompt = (stack) => {
+  if (!stack || stack.isEmpty()) {
+    return "No more prompts!";
+  }
+  return stack.pop(); // Return the popped prompt
 };

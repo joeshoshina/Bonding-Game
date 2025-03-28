@@ -1,6 +1,6 @@
-const Card = ({ level, prompt, touchCard, setTouchCard }) => {
+const Card = ({ level, prompt, touchCard, onTap }) => {
   return (
-    <button className="card" onClick={() => setTouchCard(!touchCard)}>
+    <button className="card" onClick={onTap}>
       <h2>{touchCard ? prompt : level}</h2>
     </button>
   );

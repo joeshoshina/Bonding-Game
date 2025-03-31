@@ -13,11 +13,31 @@ const App = () => {
   );
   const [prompt, setPrompt] = useState(() => getPrompt(stack));
 
+  // For preserving each levels stack once its rendered, {dict of stacks}
+  // Note to self: since the key will be used dynamically I use [] instead of .
+  const [levelStacks, setLevelStacks] = useState({
+    Perception: null,
+    Connection: null,
+    Reflection: null,
+  });
+
   // Update stack when level changes
   useEffect(() => {
-    const newStack = populateWithRandomPrompts(selectedLevel);
-    setStack(newStack);
-    setPrompt(getPrompt(newStack));
+    // Retreieve stack for level that has already been loaded
+    if (levelStacks[selectedLevel]) {
+      setStack(levelStacks[selectedLevel]);
+      setPrompt(getPrompt(levelStacks[selectedLevel]));
+    } else {
+      // Level was never loaded, aka users first time playing
+      const newStack = populateWithRandomPrompts(selectedLevel);
+      // setLevelStacks(newStack);
+      setLevelStacks((prevStacks) => ({
+        ...prevStacks,
+        [selectedLevel]: newStack,
+      }));
+      setStack(newStack);
+      setPrompt(getPrompt(newStack));
+    }
   }, [selectedLevel]);
 
   const handleLevelSelect = (level) => {

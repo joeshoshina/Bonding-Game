@@ -13,7 +13,7 @@ const App = () => {
   );
   const [prompt, setPrompt] = useState(() => getPrompt(stack));
 
-  // For preserving each levels stack once its rendered, {dict of stacks}
+  // For preserving each levels stack once its rendered, {dict of arrays which are later used for the stack}
   // Note to self: since the key will be used dynamically I use [] instead of .
   const [levelStacks, setLevelStacks] = useState({
     Perception: null,

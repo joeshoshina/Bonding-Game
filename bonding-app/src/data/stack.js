@@ -23,6 +23,10 @@ class Stack {
     if (this.isEmpty()) return null;
     return this.items[this.items.length - 1];
   }
+
+  size() {
+    return this.items.length;
+  }
 }
 
 export default Stack;
@@ -57,5 +61,7 @@ export const getPrompt = (stack) => {
   if (!stack || stack.isEmpty()) {
     return "No more prompts!";
   }
-  return stack.pop(); // Return the popped prompt
+  return stack.top();
 };
+
+// Should pop outside of getPrompt

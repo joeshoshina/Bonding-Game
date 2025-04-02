@@ -13,6 +13,10 @@ const App = () => {
   );
   const [prompt, setPrompt] = useState(() => getPrompt(stack));
 
+  // Tracking prompt amount
+  const globalPromptLength = stack.size();
+  const [promptAmount, setPromptAmount] = useState(globalPromptLength);
+
   // For preserving each levels stack once its rendered, {dict of arrays which are later used for the stack}
   // Note to self: since the key will be used dynamically I use [] instead of .
   const [levelStacks, setLevelStacks] = useState({
@@ -27,6 +31,7 @@ const App = () => {
     if (levelStacks[selectedLevel]) {
       setStack(levelStacks[selectedLevel]);
       setPrompt(getPrompt(levelStacks[selectedLevel]));
+      setPromptAmount(levelStacks[selectedLevel].size());
     } else {
       // Level was never loaded, aka users first time playing
       const newStack = populateWithRandomPrompts(selectedLevel);
@@ -37,6 +42,7 @@ const App = () => {
       }));
       setStack(newStack);
       setPrompt(getPrompt(newStack));
+      setPromptAmount(newStack.size());
     }
   }, [selectedLevel]);
 
@@ -49,6 +55,8 @@ const App = () => {
     if (!touchCard) {
       setTouchCard(true);
       setPrompt(getPrompt(stack));
+      setPromptAmount(stack.size());
+      stack.pop();
     } else {
       setTouchCard(false);
     }
@@ -61,6 +69,7 @@ const App = () => {
           level={selectedLevel}
           prompt={prompt}
           touchCard={touchCard}
+          showPromptAmount={promptAmount}
           onTap={handleCardClick}
         />
       </div>
